@@ -4,11 +4,13 @@
 #pragma once
 
 #include "Pessoa.hpp"
+#include "DiaDaSemana.hpp"
 
 class Funcionario : public Pessoa {
 
 private:
     float salario;
+    DiaDaSemana diaDoPagamento;
 
 public:
     std::string recuperaNome() const;
@@ -17,6 +19,7 @@ public:
     Funcionario(
         Cpf paramCpfFuncionario,
         std::string paramNomeFuncionario,
-        float paramSalario
+        float paramSalario,
+        DiaDaSemana paramDiaDoPagamento
     );
 };

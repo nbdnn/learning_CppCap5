@@ -11,6 +11,7 @@ public:
         Cpf paramCpf,
         std::string paramNome,
         float paramSalario,
-        std::string paramSenha);
+        std::string paramSenha,
+        DiaDaSemana paramDiaDoPagamento);
     float bonificacao() const;
 };

@@ -13,6 +13,7 @@ Criado por Guilherme Neves para capacitação
 #include "Caixa.hpp"
 #include "Gerente.hpp"
 #include "Autenticavel.hpp"
+#include "DiaDaSemana.hpp"
 
 using namespace std;
 
@@ -75,11 +76,11 @@ int main(){
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
     Caixa funcionarioCaixa = Caixa(
-        Cpf("123.456.789-10"), "Dias Vinicius", 1000
+        Cpf("123.456.789-10"), "Dias Vinicius", 1000, DiaDaSemana::Terca
     );
     
     Gerente gerenteBanco = Gerente(
-        Cpf("123.456.789-10"), "Dias Vinicius", 1000, "senhaForte"
+        Cpf("123.456.789-10"), "Dias Vinicius", 1000, "senhaForte", DiaDaSemana::Sexta
     );
 
     cout << "Nome do funcionário do caixa: " << funcionarioCaixa.recuperaNome() << endl;

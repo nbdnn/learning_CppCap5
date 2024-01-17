@@ -6,11 +6,13 @@
 
 Caixa::Caixa(Cpf paramCpfFuncionario,
     std::string paramNomeFuncionario,
-    float paramSalario) : 
+    float paramSalario,
+    DiaDaSemana paramDiaDoPagamento) : 
     Funcionario(
         paramCpfFuncionario,
         paramNomeFuncionario,
-        paramSalario
+        paramSalario,
+        paramDiaDoPagamento
     ) { }
 
 float Caixa::bonificacao() const {

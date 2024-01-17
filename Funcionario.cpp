@@ -7,10 +7,12 @@
 Funcionario::Funcionario(
     Cpf paramCpfFuncionario,
     std::string paramNomeFuncionario,
-    float paramSalario):
+    float paramSalario,
+    DiaDaSemana paramDiaDoPagamento):
 
     Pessoa(paramCpfFuncionario, paramNomeFuncionario),
-    salario(paramSalario) { }
+    salario(paramSalario),
+    diaDoPagamento(paramDiaDoPagamento) { }
 
 std::string Funcionario::recuperaNome() const {
     return this->nomePessoa;

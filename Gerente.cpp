@@ -7,11 +7,13 @@
 Gerente::Gerente(Cpf paramCpf,
         std::string paramNome,
         float paramSalario,
-        std::string paramSenha) :
+        std::string paramSenha,
+        DiaDaSemana paramDiaDoPagamento) :
         Funcionario(
             paramCpf,
             paramNome,
-            paramSalario),
+            paramSalario,
+            paramDiaDoPagamento),
         Autenticavel(paramSenha) { }
 
 float Gerente::bonificacao() const {

@@ -11,6 +11,7 @@ private:
 public:
     Caixa(Cpf paramCpfFuncionario,
     std::string paramNomeFuncionario,
-    float paramSalario);
+    float paramSalario,
+    DiaDaSemana paramDiaDoPagamento);
     float bonificacao() const;
 };
