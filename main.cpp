@@ -56,7 +56,7 @@ int main(){
             "Dias Cardoso",
             "umaSenha"));
 
-    umaOutraConta.depositar(500);
+    umaOutraConta += 500;
 
     ContaCorrente maisUmaConta = ContaCorrente(
         "112358",
@@ -67,7 +67,7 @@ int main(){
 
     maisUmaConta.depositar(1000);
     maisUmaConta.sacar(500);
-    maisUmaConta.transferePara(umaOutraConta, 200);
+    maisUmaConta += umaConta;
 
     ExibeSaldo(umaConta);
     ExibeSaldo(umaOutraConta);

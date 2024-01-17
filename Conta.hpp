@@ -26,6 +26,7 @@ protected:
 public:
     void sacar(float valorASacar);
     void depositar(float valorADepositar);
+    void operator+=(float valorADepositar);
     virtual float taxaDeSaque() const = 0;
 
     std::string recuperaNumero() const;

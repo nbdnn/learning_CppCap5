@@ -12,6 +12,7 @@ class ContaCorrente final : public Conta {
 public:
     float taxaDeSaque() const override;
     void transferePara(Conta& contaDestino, float valorATransferir);
+    void operator+=(ContaCorrente& contaOrigem);
     ContaCorrente(
         std::string paramNumeroConta,
         Titular paramTitularConta);
