@@ -10,7 +10,7 @@ Criado por Guilherme Neves para capacitação
 #include "Pessoa.hpp"
 #include "Autenticavel.hpp"
 
-class Titular final: public Pessoa, public Autenticavel {
+class Titular final: public Pessoa<Cpf>, public Autenticavel {
 public:
     Titular(
         Cpf paramCpf,

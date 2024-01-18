@@ -58,6 +58,11 @@ ostream& operator<< (ostream& cout, const Conta& conta){
     return cout;
 }
 
+template<typename T>
+T Menor(T a, T b) {
+    return a < b ? a : b;
+}
+
 int main(){
     ContaCorrente umaConta = ContaCorrente(
         "123456",
@@ -89,9 +94,7 @@ int main(){
     RealizaSaque(maisUmaConta, 500);
     maisUmaConta += umaConta;
 
-    cout << umaConta;
-    cout << umaOutraConta;
-    cout << maisUmaConta;
+    cout << "A menor conta entre:\n" << umaConta << "e\n" << umaOutraConta << "é:\n" << Menor <Conta&> (umaConta, umaOutraConta);
 
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
@@ -102,7 +105,7 @@ int main(){
     Gerente gerenteBanco = Gerente(
         Cpf("123.456.789-10"), "Dias Vinicius", 1000, "senhaForte", DiaDaSemana::Sexta
     );
-
+    
     cout << "Nome do funcionário do caixa: " << funcionarioCaixa.recuperaNome() << endl;
     // cout << "Realizando login para gerente...\nInsira a senha: ";
     // string senhaRecebida;

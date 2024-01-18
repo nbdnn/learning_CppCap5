@@ -56,6 +56,10 @@ void Conta::operator+=(float valorADepositar){
     this->depositar(valorADepositar);
 }
 
+bool Conta::operator< (const Conta& outraConta) {
+    return this->saldo < outraConta.saldo;
+}
+
 std::string Conta::recuperaNumero() const {
     return this->numeroConta;
 }

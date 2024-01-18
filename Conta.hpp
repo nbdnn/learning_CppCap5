@@ -33,6 +33,7 @@ public:
     std::variant<ResultadoSaque, float> sacar(float valorASacar);
     void depositar(float valorADepositar);
     void operator+=(float valorADepositar);
+    bool operator< (const Conta& outraConta);
     virtual float taxaDeSaque() const = 0;
 
     std::string recuperaNumero() const;
