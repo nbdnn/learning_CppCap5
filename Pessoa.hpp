@@ -17,6 +17,7 @@ private:
     void verificaTamanhoDoNome();
 public:
     Cpf recuperaCpf() const;
+    std::string recuperaNome() const;
     
     Pessoa(
         Cpf paramCpfPessoa,

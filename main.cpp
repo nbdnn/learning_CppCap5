@@ -17,9 +17,9 @@ Criado por Guilherme Neves para capacitação
 
 using namespace std;
 
-void ExibeSaldo(const Conta& conta) {
-    cout << "Saldo de " << conta.recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
-}
+// void ExibeSaldo(const Conta& conta) {
+//     cout << "Saldo de " << conta.recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
+// }
 
 void RealizaSaque (Conta& conta) {
     conta.sacar(200);
@@ -27,7 +27,7 @@ void RealizaSaque (Conta& conta) {
 
 // void ExibeSaldo(const Conta& conta) {
 //     cout << "Saldo é : " << conta.recuperaSaldo() << endl;
-// } n
+// }
 
 void FazLogin(const Autenticavel& alguem, string senha){
     if(alguem.autentica(senha)){
@@ -36,6 +36,13 @@ void FazLogin(const Autenticavel& alguem, string senha){
     }
     cout << "Senha inválida" << endl;
     return;
+}
+
+ostream& operator<< (ostream& cout, const Conta& conta){
+    Pessoa titular = conta.titularConta;
+    cout << "Saldo de " << conta.recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
+    cout << "O titular da conta é: "<< titular.recuperaNome() << endl;
+    return cout;
 }
 
 int main(){
@@ -69,9 +76,9 @@ int main(){
     maisUmaConta.sacar(500);
     maisUmaConta += umaConta;
 
-    ExibeSaldo(umaConta);
-    ExibeSaldo(umaOutraConta);
-    ExibeSaldo(maisUmaConta);
+    cout << umaConta;
+    cout << umaOutraConta;
+    cout << maisUmaConta;
 
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 

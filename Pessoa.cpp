@@ -24,3 +24,7 @@ void Pessoa::verificaTamanhoDoNome() {
 Cpf Pessoa::recuperaCpf() const {
     return this->cpfPessoa;
 }
+
+std::string Pessoa::recuperaNome() const{
+  return this->nomePessoa;
+}

@@ -32,6 +32,7 @@ public:
     std::string recuperaNumero() const;
     Titular recuperaTitular() const;
     float recuperaSaldo() const;
+    friend std::ostream& operator<< (std::ostream& cout, const Conta& conta);
 
     Conta(
         std::string paramNumeroConta,
