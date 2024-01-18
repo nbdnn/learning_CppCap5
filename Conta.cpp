@@ -25,22 +25,21 @@ int Conta::recuperaNumeroDeContas() {
     return numeroDeContas;
 }
 
-void Conta::sacar(float valorASacar){
+std::variant<Conta::ResultadoSaque, float> Conta::sacar(float valorASacar){
 
     if(valorASacar < 0){
-        std::cout << "Não pode sacar valor negativo" << std::endl;
-        return;
+        return ValorNegativo;
     }
 
     float tarifaDeSaque = this->taxaDeSaque()*valorASacar;
     float valorDoSaque = valorASacar + tarifaDeSaque;
 
     if(valorDoSaque > this->saldo){
-        std::cout << "Saldo insuficiente" << std::endl;
-        return;
+        return SaldoInsuficiente;
     }
     
     this->saldo -= valorDoSaque;
+    return this->saldo;
 }
 
 void Conta::depositar(float valorADepositar){

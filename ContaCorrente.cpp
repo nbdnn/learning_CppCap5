@@ -18,8 +18,18 @@ void ContaCorrente::transferePara(
     Conta& contaDestino,
     float valorATransferir
 ) {
-this->sacar(valorATransferir);
-contaDestino.depositar(valorATransferir);
+    auto resultado = this->sacar(valorATransferir);
+    if (resultado.index()){
+        contaDestino.depositar(valorATransferir);
+        std::cout << "Transferência realizada com sucesso" << std::endl;
+        return;
+    }
+    if (std::get<Conta::ResultadoSaque>(resultado) == SaldoInsuficiente){
+        std::cout << "Saldo insuficiente para a transferência" << std::endl;
+        return;
+    }
+    std::cout << "Valor negativo recebido para a transferência" << std::endl;
+    return;
 }
 
 void ContaCorrente::operator+=(ContaCorrente& contaOrigem){

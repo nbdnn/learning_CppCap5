@@ -4,6 +4,8 @@ Criado por Guilherme Neves para capacitação
 
 #include <iostream>
 #include <string>
+#include <utility>
+#include <variant>
 #include "Conta.hpp"
 #include "Titular.hpp"
 #include "Cpf.hpp"
@@ -21,8 +23,19 @@ using namespace std;
 //     cout << "Saldo de " << conta.recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
 // }
 
-void RealizaSaque (Conta& conta) {
-    conta.sacar(200);
+void RealizaSaque (Conta& conta, float valorSaque) {
+    auto resultado = conta.sacar(valorSaque);
+    if (auto saldo = get_if<float>(&resultado)) {
+        cout << "Saque realizado com sucesso" << endl;
+        cout << "Novo saldo da conta: " << *saldo << endl;
+        return;
+    }
+    if (get<Conta::ResultadoSaque>(resultado) == Conta::SaldoInsuficiente) {
+        cout << "Valor insuficiente em conta para realizar o saque" << endl;
+        return;
+    }
+    cout << "Não pode sacar valor negativo" << endl;
+    return;
 }
 
 // void ExibeSaldo(const Conta& conta) {
@@ -54,7 +67,7 @@ int main(){
             "umaSenha"));
     
     umaConta.depositar(500);
-    umaConta.sacar(200);
+    RealizaSaque(umaConta, 200);
 
     ContaPoupanca umaOutraConta = ContaPoupanca(
         "654321",
@@ -73,7 +86,7 @@ int main(){
             "umaSenha"));
 
     maisUmaConta.depositar(1000);
-    maisUmaConta.sacar(500);
+    RealizaSaque(maisUmaConta, 500);
     maisUmaConta += umaConta;
 
     cout << umaConta;

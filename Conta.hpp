@@ -7,6 +7,9 @@ Criado por Guilherme Neves para capacitação
 
 #include <string>
 #include <iostream>
+#include <utility>
+#include <variant>
+#include <format>
 #include "Titular.hpp"
 
 class Conta {
@@ -24,7 +27,10 @@ protected:
     float saldo;
 
 public:
-    void sacar(float valorASacar);
+    enum ResultadoSaque {
+        ValorNegativo,SaldoInsuficiente
+    };
+    std::variant<ResultadoSaque, float> sacar(float valorASacar);
     void depositar(float valorADepositar);
     void operator+=(float valorADepositar);
     virtual float taxaDeSaque() const = 0;
